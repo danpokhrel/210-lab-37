@@ -2,31 +2,35 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
+#include <list>
 using namespace std;
 
 // prototypes
-int sum_ascii(string str);
+int get_hash_index(string str);
 
 int main() {
-    int sum = 0;
+    map<int, list<string>> hash_table;
 
     fstream fin("data.txt");
     while(fin.good()){
         string str;
         getline(fin, str);
-        sum += sum_ascii(str);
+        int hash = get_hash_index(str);
+        hash_table[hash].push_back(str);
     }
 
-    cout << sum;
+    for (auto pair : hash_table){
+
+    }
 
     return 0;
 }
 
-int sum_ascii(string str){
+int get_hash_index(string str){
     int sum = 0;
     for (char c : str)
         sum += (int)c;
     
-    return sum;
+    return sum % 97;
 }
-
