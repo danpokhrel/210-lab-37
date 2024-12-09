@@ -1,18 +1,28 @@
 // COMSC-210 | Lab 37 | Dan Pokhrel
 #include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 
+// prototypes
+int sum_ascii(string str);
 
 int main() {
-    char a = 'A';
-    cout << a << endl;
-    cout << (int) a << endl;
-    int b = 66;
-    cout << b << endl;
-    cout << (char) b << endl;
-    
+    cout << sum_ascii("A") << endl;
+    cout << sum_ascii("5") << endl;
+    cout << sum_ascii("H") << endl;
+    cout << sum_ascii("?") << endl;
+    cout << sum_ascii("abcdef") << endl;
 
     return 0;
+}
+
+int sum_ascii(string str){
+    int sum = 0;
+    for (char c : str)
+        sum += (int)c;
+    
+    return sum;
 }
 
 /* 
