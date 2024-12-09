@@ -28,10 +28,10 @@ int main() {
 
         int hash = pair.first;
         list<string> value = pair.second;
-        cout << hash << " : ";
+        cout << hash << " : " << value.size();
         for (string str : value)
             cout << str << " ";
-        cout << endl;
+        cout << endl << endl;
     }
 
     return 0;
@@ -42,5 +42,5 @@ int get_hash_index(string str){
     for (char c : str)
         sum += (int)c;
     
-    return sum % 3079;
+    return sum % 3078;
 }
