@@ -12,6 +12,7 @@ int get_hash_index(string str);
 int main() {
     map<int, list<string>> hash_table;
 
+    // Read file and populate hash_table
     fstream fin("data.txt");
     while(fin.good()){
         string str;
@@ -20,8 +21,17 @@ int main() {
         hash_table[hash].push_back(str);
     }
 
+    // display first 100 entires
+    int i = 0;
     for (auto pair : hash_table){
+        i ++; if (i > 100) break;
 
+        int hash = pair.first;
+        list<string> value = pair.second;
+        cout << hash << " : ";
+        for (string str : value)
+            cout << str << " ";
+        cout << endl;
     }
 
     return 0;
@@ -32,5 +42,5 @@ int get_hash_index(string str){
     for (char c : str)
         sum += (int)c;
     
-    return sum % 97;
+    return sum % 3079;
 }
